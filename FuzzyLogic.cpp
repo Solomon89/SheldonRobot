@@ -416,11 +416,11 @@ int main(int argc, char *argv[])
 		getFuzzyMembershipRightEdgeFollowing(rightFrontSensor, rightWallSensor, &leftMotorValue, &rigthMotorValue);
 		cout << "LeftMotorSpeed = " << LeftMotorSpeed << endl;
 		cout << "RightMotorSpeed = " << RightMotorSpeed << endl;
-		//MotorMotion(LeftMotorSpeed, RightMotorSpeed);
-		 time_sleep(0.3);
+		MotorMotion(LeftMotorSpeed, RightMotorSpeed);
+		sleep(0.3);
 	}
 	}
-	catch()
+	catch(int)
 	{cout << "we have problem" << endl;}
 	MotorMotion(0,0);
 }

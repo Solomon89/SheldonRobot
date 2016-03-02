@@ -26,6 +26,12 @@ extern "C"
 
 	#include "pigpio.h"
 }
+#include <stdio.h>
+#include <iostream>
+#include <map>
+#include <math.h> 
+
+using namespace std;
 
 #define GPIORM1 18
 #define GPIORM2 23
@@ -47,11 +53,14 @@ void InitialiseDC()
    
 void MotorMotion(double leftMotorProsentage, double rightMotorPersentage)
 {
- 
+  
   int i = 0;
-  int leftMotorFrequency = ((maxim[i]-minim[i])/100) * (100 - abs(leftMotorProsentage));
+  int leftMotorFrequency = ((maxim[i]-minim[i])/100.0) * (100.0 - abs(leftMotorProsentage));
   i++;
-  int rightMotorFrequency = ((maxim[i]-minim[i])/100) * (100 - abs(rightMotorPersentage));
+  int rightMotorFrequency = ((maxim[i]-minim[i])/100.0) * (100.0 - abs(rightMotorPersentage));
+ 
+  cout << "L:" << leftMotorFrequency << "R:" << rightMotorFrequency << endl;
+  
   if (leftMotorProsentage > 0)
   {
 	  gpioWrite(GPIOLM1, PI_HIGH);
