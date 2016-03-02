@@ -69,6 +69,6 @@ int main(int argc, char *argv[])
   for(i=0;i<4;i++){
      printf("Sonar %d Distance: %dcm\n",i, getCM(Trigs[i],Echos[i]));
 	 }
-	  time_sleep(1);
+	  time_sleep(0.1);
 	 }
 }
